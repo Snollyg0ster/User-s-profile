@@ -1,0 +1,59 @@
+.App-head {
+  background-color: #63df69;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+#Title {
+  margin-bottom: 20px;
+  font-size: larger;
+  color: white;
+  font-weight: bold;
+}
+
+#resultsCont {
+  width: 500px;
+  border-radius: 3px;
+  border-color: white;
+  border-style: solid;
+  padding: 30px 20px 10px 20px;
+  font-size: large;
+  display: flex;
+  flex-direction: column;
+}
+
+#resultsTitle {
+  height: 24px;
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+#resultsItem {
+  margin-bottom: 10px;
+  padding-left: 10px;
+  width: fit-content;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  border-style: dotted;
+  border-width: 0;
+  border-bottom-width: 2px;
+  border-color: white;
+}
+
+#answer {
+  color: rgb(151, 255, 250);
+}
+
+#again {
+  margin-top: 10px;
+  color: white;
+  align-self: flex-end;
+}
