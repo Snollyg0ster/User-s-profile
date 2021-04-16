@@ -11,12 +11,17 @@ const QuestionCont = () => {
   const [question, setQuestion] = useState(Questions[number]);
   let history = useHistory();
   const dispatch = useDispatch();
-  const {allResults} = useSelector((state: DefaultRootState) => state.results);
+  const { allResults } = useSelector(
+    (state: DefaultRootState) => state.results
+  );
 
   useEffect(() => {
     console.log(">>allResults", allResults);
-    if (number < Questions.length) setQuestion(Questions[number]);
-    else return history.push("/result");
+    if (number < Questions.length) {
+      setQuestion(Questions[number]);
+    } else {
+      return history.push("/result");
+    }
   }, [number]);
 
   return (
@@ -35,7 +40,7 @@ const QuestionCont = () => {
             key={Math.random() * 100000}
             id="variantsItem"
             onClick={() => {
-              dispatch(addResult({title: question.title, answer: item}));
+              dispatch(addResult({ title: question.title, answer: item }));
               setNumber(number + 1);
             }}
           >
