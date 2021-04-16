@@ -9,11 +9,13 @@ import { DefaultRootState } from "../../redux/indexReducer";
 const QuestionCont = () => {
   const [number, setNumber] = useState(0);
   const [question, setQuestion] = useState(Questions[number]);
-  let history = useHistory();
-  const dispatch = useDispatch();
+
   const { allResults } = useSelector(
     (state: DefaultRootState) => state.results
   );
+
+  const history = useHistory();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     console.log(">>allResults", allResults);
