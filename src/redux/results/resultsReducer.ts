@@ -1,10 +1,19 @@
 import { actions } from "./actions";
 
-export const initialState = {
+export interface Result {
+  title: string
+  answer: string
+}
+
+export interface ResultsState {
+  allResults: Result[],
+};
+
+export const initialState: ResultsState = {
   allResults: [],
 };
 
-const resultReduser = (state = initialState, action) => {
+const resultReduser = (state = initialState, action: any) => {
   switch (action.type) {
     case actions.ADD_RESULT: {
       const updatedResults = [

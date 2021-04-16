@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
 import "./styles.css";
-import Questions from "./../../constants/index";
+import Questions from "../../constants/index";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addResult } from "../../redux/results/actions";
+import { DefaultRootState } from "../../redux/indexReducer";
 
 const QuestionCont = () => {
   const [number, setNumber] = useState(0);
   const [question, setQuestion] = useState(Questions[number]);
   let history = useHistory();
   const dispatch = useDispatch();
-  const store = useSelector((store) => store);
+  const {allResults} = useSelector((state: DefaultRootState) => state.results);
 
   useEffect(() => {
-    console.log(">> results", store.results.allResults);
+    console.log(">>allResults", allResults);
     if (number < Questions.length) setQuestion(Questions[number]);
     else return history.push("/result");
   }, [number]);
@@ -34,7 +35,7 @@ const QuestionCont = () => {
             key={Math.random() * 100000}
             id="variantsItem"
             onClick={() => {
-              dispatch(addResult(question.title, item));
+              dispatch(addResult({title: question.title, answer: item}));
               setNumber(number + 1);
             }}
           >
