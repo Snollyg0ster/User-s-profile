@@ -7,7 +7,9 @@ import { DefaultRootState } from "../../redux/indexReducer";
 
 const ResultScreen = () => {
   const dispatch = useDispatch();
-  const {allResults} = useSelector((state: DefaultRootState) => state.results);
+  const { allResults } = useSelector(
+    (state: DefaultRootState) => state.results
+  );
 
   return (
     <div className="App-head">
